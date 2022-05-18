@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### install react router
 `npm install react-router-dom@5.1`
+
+### install react select
+`npm install react-select`
