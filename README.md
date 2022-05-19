@@ -76,3 +76,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### install react select
 `npm install react-select`
+
+### install javaScript date library
+`npm install date-fns`
