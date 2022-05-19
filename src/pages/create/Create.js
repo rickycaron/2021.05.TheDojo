@@ -3,7 +3,8 @@ import { useCollection } from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { timestamp } from '../../firebase/config'
 import Select from 'react-select'
-
+import { useFirestore } from '../../hooks/useFirestore'
+import { useHistory } from 'react-router-dom'
 // styles
 import './Create.css'
 
@@ -18,6 +19,8 @@ export default function Create() {
     const { user } = useAuthContext()
     const { documents } = useCollection('users')
     const [users, setUsers] = useState([])
+    const { addDocument, response } = useFirestore('projects')
+    const history = useHistory()
 
     // form field values
     const [name, setName] = useState('')
@@ -71,8 +74,11 @@ export default function Create() {
             createdBy,
             comments: []
         }
-
-        console.log(project)
+        // console.log(project)
+        await addDocument(project)
+        if (!response.error) {
+            history.push('/')
+        }
     }
 
     return (
