@@ -1,4 +1,8 @@
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+//for React Router
+//version 5: Redirect, Switch
+//version 6: Navigate, Routes
+
 import { useAuthContext } from './hooks/useAuthContext'
 
 // styles
@@ -24,28 +28,30 @@ function App() {
                     {user && <Sidebar />}
                     <div className="container">
                         <Navbar />
-                        <Switch>
-                            <Route exact path="/">
-                                {!user ? <Redirect to="/login" />
-                                    : <Dashboard />}
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={!user ? <Navigate to="/login" /> : <Dashboard />}>
                             </Route>
-                            <Route path="/create">
-                                {!user ? <Redirect to="/login" />
-                                    : <Create />}
+                            <Route
+                                path="/create"
+                                element={!user ? <Navigate to="/login" /> : <Create />}>
                             </Route>
-                            <Route path="/projects/:id">
-                                {!user ? <Redirect to="/login" />
-                                    : <Project />}
+                            <Route
+                                path="/projects/:id"
+                                element={!user ? <Navigate to="/login" /> : <Project />}
+                            >
                             </Route>
-                            <Route path="/login">
-                                {user ? <Redirect to="/" />
-                                    : <Login />}
+                            <Route
+                                path="/login"
+                                element={user ? <Navigate to="/" /> : <Login />}>
                             </Route>
-                            <Route path="/signup">
-                                {user ? <Redirect to="/" />
-                                    : <Signup />}
+                            <Route
+                                path="/signup"
+                                element={user ? <Navigate to="/" /> : <Signup />}
+                            >
                             </Route>
-                        </Switch>
+                        </Routes>
                     </div>
                     {user && <OnlineUsers />}
                 </BrowserRouter>

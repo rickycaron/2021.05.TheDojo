@@ -79,3 +79,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### install javaScript date library
 `npm install date-fns`
+
+###
+`npm run build`
