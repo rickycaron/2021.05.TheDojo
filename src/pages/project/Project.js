@@ -19,7 +19,7 @@ export default function Project() {
 
     return (
         <div className="project-details">
-            <h1>{document.name}</h1>
+            <ProjectSummary project={document} />
         </div>
     )
 }
