@@ -27,7 +27,7 @@ Your app is ready to be deployed!
 ### `firebase deploy`
 
 Delpoy the just build static React webpage to the firebase. You can then see the webpage on Firebase website. 
-
+<!-- 
 ### install react router
 `npm install react-router-dom@6`
 Install the react router for the single web page project
@@ -38,4 +38,10 @@ Install the React select component for the select box
 
 ### install javaScript date library
 `npm install date-fns`
-Install JavaScript date library for the date shown in a more friendlier way
+Install JavaScript date library for the date shown in a more friendlier way -->
+
+## Project Introduction
+
+This project was created with React as the frontend and Firebase of version 8 as the backend. \
+Firebase provided the database, authentication and data retrieving methods. The webpage was also served on the Firebase. \
+
