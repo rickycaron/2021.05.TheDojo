@@ -3,9 +3,11 @@ import { projectAuth, projectStorage, projectFirestore } from '../firebase/confi
 import { useAuthContext } from './useAuthContext'
 
 export const useSignup = () => {
+    //IsCancelled is for the cleanp function, when the component unmount, the setState won't run 
     const [isCancelled, setIsCancelled] = useState(false)
     const [error, setError] = useState(null)
     const [isPending, setIsPending] = useState(false)
+
     const { dispatch } = useAuthContext()
 
     const signup = async (email, password, displayName, thumbnail) => {
@@ -39,6 +41,7 @@ export const useSignup = () => {
             dispatch({ type: 'LOGIN', payload: res.user })
 
             if (!isCancelled) {
+                //
                 setIsPending(false)
                 setError(null)
             }

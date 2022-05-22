@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { projectFirestore } from "../firebase/config"
 
+//to get a collection of documents
 export const useCollection = (collection, _query, _orderBy) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
@@ -11,6 +12,7 @@ export const useCollection = (collection, _query, _orderBy) => {
     const orderBy = useRef(_orderBy).current
 
     useEffect(() => {
+        //get the reference to firebase
         let ref = projectFirestore.collection(collection)
 
         if (query) {
@@ -34,7 +36,7 @@ export const useCollection = (collection, _query, _orderBy) => {
             setError('could not fetch the data')
         })
 
-        // unsubscribe on unmount
+        // unsubscribe on unmount, clean up function
         return () => unsubscribe()
 
     }, [collection, query, orderBy])

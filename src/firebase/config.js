@@ -14,11 +14,18 @@ const firebaseConfig = {
 };
 
 //init firebase
+//use the configuration to initialize the firebase connection
 firebase.initializeApp(firebaseConfig)
 
 //init services
+//call the firestore() method and get the object, projectFirestore, to interact with firestore, we will use this project to interact with the firebase later on
+//for get, add, update, delete data
 const projectFirestore = firebase.firestore()
+
+//for login logout, signup
 const projectAuth = firebase.auth()
+
+//for avater
 const projectStorage = firebase.storage()
 
 //timestamp

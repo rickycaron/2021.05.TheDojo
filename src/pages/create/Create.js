@@ -4,7 +4,6 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import { timestamp } from '../../firebase/config'
 import Select from 'react-select'
 import { useFirestore } from '../../hooks/useFirestore'
-// import { useHistory } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 // styles
@@ -22,9 +21,7 @@ export default function Create() {
     const { documents } = useCollection('users')
     const [users, setUsers] = useState([])
     const { addDocument, response } = useFirestore('projects')
-    // const history = useHistory()
     const navigate = useNavigate()
-
 
     // form field values
     const [name, setName] = useState('')
